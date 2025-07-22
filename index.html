@@ -7,28 +7,48 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="Calculator">
-        <input type ="text" id="display">
+    <div class="calculator">
+        <input type="text" id="display" readonly>
+
         <div class="btns">
-            <button onclick="addToDisplay('+')">+</button>
+            <button class="btn" onclick="addToDisplay('+')">+</button>
             <button onclick="addToDisplay('7')">7</button>
             <button onclick="addToDisplay('8')">8</button>
             <button onclick="addToDisplay('9')">9</button>
-            <button onclick="addToDisplay('-')">-</button>
+            <button class="btn" onclick ="addToDisplay('-')">-</button>
             <button onclick="addToDisplay('4')">4</button>
             <button onclick="addToDisplay('5')">5</button>
             <button onclick="addToDisplay('6')">6</button>
-            <button onclick="addToDisplay('*')">*</button>
+            <button class="btn" onclick="addToDisplay('*')">*</button>
             <button onclick="addToDisplay('1')">1</button>
             <button onclick="addToDisplay('2')">2</button>
             <button onclick="addToDisplay('3')">3</button>
-            <button onclick="addToDisplay('/')">/</button>
+            <button class="btn" onclick="addToDisplay('/')">/</button>
             <button onclick="addToDisplay('0')">0</button>
             <button onclick="addToDisplay('.')">.</button>
-            <button onclick="Calculator()">=</button>
-            <button onclick="clear()">c</button>
+            <button onclick="calculator()">=</button>
+            <button onclick="clear1()">C</button>
         </div>
     </div>
-    
+
+<script>
+const display = document.getElementById("display");
+
+function addToDisplay(input){
+    display.value += input;
+}
+
+function calculator(){
+    try{
+        display.value = eval(display.value);
+    }catch(error){
+        display.value = "error";
+    }
+}
+
+function clear1(){
+    display.value = "";
+}
+</script>
 </body>
-</html>
+          
